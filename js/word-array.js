@@ -1,0 +1,1 @@
+const wordBank = ["advise", "allege", "beyond"]
