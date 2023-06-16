@@ -26,6 +26,103 @@ header {
     align-items: center;
 
 }
+
+#flower {
+    height: 50%;
+    width:50%;
+    position:relative;
+}
+#flower > div {
+    position:absolute;
+}
+
+#p1 {
+    top:7%;
+    left: 7%;
+    width:33%;
+    height:33%;
+    background-color:rgb(255 188 193);
+    border-top-right-radius: 50%;
+    border-bottom-left-radius:50%;
+}
+
+#p2 {
+    top:0px;
+    left: 33.33%;
+    width:33%;
+    height:33%;
+    background-color:rgb(255 188 193);
+    border-top-left-radius: 50%;
+    border-bottom-right-radius:50%;
+    transform:rotate(135deg);
+}
+#p3 {
+    top:7%;
+    right: 7%;
+    width:33%;
+    height:33%;
+    background-color:rgb(255 188 193);
+    border-top-left-radius: 50%;
+    border-bottom-right-radius:50%;
+}
+#p4 {
+    top:33.33%;
+    left: 0px;
+    width:33%;
+    height:33%;
+    background-color:rgb(255 188 193);
+    border-top-left-radius: 50%;
+    border-bottom-right-radius:50%;
+    transform: rotate(30deg)
+}
+
+#p6 {
+    top:33.33%;
+    right: 0px;
+    width:33%;
+    height:33%;
+    background-color:rgb(255 188 193);
+    border-top-left-radius: 50%;
+    border-bottom-right-radius:50%;
+    transform:rotate(30deg);
+}#p7 {
+    top:59.63%;
+    left: 7%;
+    width:33%;
+    height:33%;
+    background-color:rgb(255 188 193);
+    border-top-left-radius: 50%;
+    border-bottom-right-radius:50%;
+}
+
+#p8 {
+    top:66.63%;
+    left: 33.33%;
+    width:33%;
+    height:33%;
+    background-color:rgb(255 188 193);
+    border-top-left-radius: 50%;
+    border-bottom-right-radius:50%;
+    transform:rotate(135deg);
+}#p9 {
+    top:59.63%;
+    right: 7%;
+    width:33%;
+    height:33%;
+    background-color:rgb(255 188 193);
+    border-top-right-radius: 50%;
+    border-bottom-left-radius:50%;
+}
+#p5-core {
+    top:33.33%;
+    left: 33.33%;
+    width:33%;
+    height:33%;
+    background-color:rgb(255 254 214);
+    border-radius:50%;
+}
+
+
 #letter-buttons {
     grid-area: 2/2/3/3;
     
@@ -42,4 +139,10 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+#start-game {
+    visibility: visible;
+}
+#start-over {
+    visibility: hidden;
 }
