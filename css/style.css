@@ -28,96 +28,82 @@ header {
 }
 
 #flower {
-    height: 50%;
-    width:50%;
+    height: 300px;
+    width:300px;
     position:relative;
 }
 #flower > div {
     position:absolute;
+    width: 100px;
+    height: 100px;
 }
+    
 
 #p1 {
-    top:7%;
-    left: 7%;
-    width:33%;
-    height:33%;
+    top:10%;
+    left: 10%;
     background-color:rgb(255 188 193);
     border-top-right-radius: 50%;
     border-bottom-left-radius:50%;
 }
 
 #p2 {
-    top:0px;
+    top:2%;
     left: 33.33%;
-    width:33%;
-    height:33%;
     background-color:rgb(255 188 193);
-    border-top-left-radius: 50%;
-    border-bottom-right-radius:50%;
-    transform:rotate(135deg);
+    border-top-right-radius: 50%;
+    border-bottom-left-radius:50%;
+    transform:rotate(45deg);
 }
 #p3 {
-    top:7%;
-    right: 7%;
-    width:33%;
-    height:33%;
+    top: 10%;
+    right: 10%;
     background-color:rgb(255 188 193);
     border-top-left-radius: 50%;
     border-bottom-right-radius:50%;
 }
 #p4 {
     top:33.33%;
-    left: 0px;
-    width:33%;
-    height:33%;
+    left: 3px;
     background-color:rgb(255 188 193);
     border-top-left-radius: 50%;
     border-bottom-right-radius:50%;
-    transform: rotate(30deg)
+    transform: rotate(45deg)
 }
 
 #p6 {
     top:33.33%;
-    right: 0px;
-    width:33%;
-    height:33%;
+    right: 3px;
     background-color:rgb(255 188 193);
     border-top-left-radius: 50%;
     border-bottom-right-radius:50%;
-    transform:rotate(30deg);
+    transform:rotate(45deg);
 }#p7 {
-    top:59.63%;
-    left: 7%;
-    width:33%;
-    height:33%;
+    top:56.63%;
+    left:10%;
     background-color:rgb(255 188 193);
     border-top-left-radius: 50%;
     border-bottom-right-radius:50%;
 }
 
 #p8 {
-    top:66.63%;
+    top:64.63%;
     left: 33.33%;
-    width:33%;
-    height:33%;
     background-color:rgb(255 188 193);
-    border-top-left-radius: 50%;
-    border-bottom-right-radius:50%;
-    transform:rotate(135deg);
+    border-top-right-radius: 50%;
+    border-bottom-left-radius:50%;
+    transform:rotate(45deg);
 }#p9 {
-    top:59.63%;
-    right: 7%;
-    width:33%;
-    height:33%;
+    top:56.63%;
+    right: 10%;
     background-color:rgb(255 188 193);
+    border-width: 5%;
     border-top-right-radius: 50%;
     border-bottom-left-radius:50%;
 }
 #p5-core {
     top:33.33%;
     left: 33.33%;
-    width:33%;
-    height:33%;
     background-color:rgb(255 254 214);
     border-radius:50%;
 }
