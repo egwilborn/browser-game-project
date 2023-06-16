@@ -1,0 +1,45 @@
+* {
+    box-sizing:border-box;
+}
+body {
+    height:100vh;
+    margin:0;
+    font-family: 'Josefin Sans', sans-serif;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 5fr 2fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background-color: rgb(182 230 238)
+}
+header {
+    grid-area: 1/1/2/3;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+#flower-message {
+    grid-area: 2/1/3/2;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+#letter-buttons {
+    grid-area: 2/2/3/3;
+    
+}
+#guess-word {
+    grid-area: 3/1/4/2;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+#game-buttons {
+    grid-area: 3/2/4/3;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
