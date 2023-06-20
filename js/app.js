@@ -47,14 +47,11 @@ function renderMessage() {
   if (gameStatus === "playing") {
     messageEl.innerText = "";
 }else if (gameStatus === "won") {
-  messageEl.innerText = "Congratulats! You guessed the word!"
-  messageEl.style.backgroundColor = "rgb(213, 172, 129)";
+  messageEl.innerText = "Congrats! You guessed the word!"
 } else if (gameStatus === "lost") {
   messageEl.innerText = `Oh no! The word was ${guessWord}.`
-  messageEl.style.backgroundColor = "rgb(170, 128, 209)";
 } else if (gameStatus === "start") {
-  messageEl.innerHTML = "<h4>Guess each letter of the word</h4> <h4>Can you keep the flower from losing its petals?</h4>"
-  messageEl.style.backgroundColor = "rgb(182 230 238)"
+  messageEl.innerHTML = "<h4>Guess each letter of the word.</h4> <h4>Can you keep the flower from losing its petals?</h4>"
   flowerPetalEls.forEach(function(petalEl) {
     petalEl.style.visibility = "visible";
   })
@@ -75,7 +72,7 @@ function renderButtons() {
       el.innerText = "__";
     })
     letterBtns.forEach(function(Btn) {
-      Btn.style.backgroundColor = "rgb(107, 210, 172)";
+      Btn.style.backgroundColor = " rgb(52, 200, 173)";
       Btn.style.textDecoration = "none";
       Btn.disabled = false;
     })
