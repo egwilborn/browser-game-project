@@ -10,7 +10,9 @@ body {
     grid-template-rows: 1fr 5fr 2fr;
     grid-column-gap: 0px;
     grid-row-gap: 0px;
-    background-color: rgb(182 230 238)
+    background-color: rgb(182 230 238);
+
+
 }
 header {
     grid-area: 1/1/2/3;

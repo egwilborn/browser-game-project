@@ -38,9 +38,9 @@ function init() {
 }
 
 function render() {
-    renderMessage();
-    renderButtons();
-    renderGuessOutcome();
+  renderGuessOutcome();
+  renderMessage();
+  renderButtons();
 }
 
 function renderMessage() {
@@ -48,12 +48,14 @@ function renderMessage() {
     messageEl.innerText = "";
 }else if (gameStatus === "won") {
   messageEl.innerText = "Congratulats! You guessed the word!"
-  messageEl.style.backgroundColor = "blue"
+  messageEl.style.backgroundColor = "rgb(213, 172, 129)";
 } else if (gameStatus === "lost") {
-  messageEl.innerText = `Oops! The word was ${guessWord}.`
+  messageEl.innerText = `Oh no! The word was ${guessWord}.`
+  messageEl.style.backgroundColor = "rgb(170, 128, 209)";
 } else if (gameStatus === "start") {
   messageEl.innerHTML = "<h4>Guess each letter of the word</h4> <h4>Can you keep the flower from losing its petals?</h4>"
   messageEl.style.backgroundColor = "rgb(182 230 238)"
+  
 }
 }
 
@@ -64,11 +66,15 @@ function renderButtons() {
   } else if (gameStatus === "won" || gameStatus === "lost") {
     startOverBtn.innerText = "Play Again?"
   } else if (gameStatus === "start") {
+    startOverBtn.innerText = "Start Over"
     startOverBtn.style.visibility = "hidden";
     gameStartBtn.style.visibility = "visible";
-    document.querySelectorAll("#guessWord > div").innerText = "__";
+    guessWordEls.forEach(function(el){
+      el.innerText = "__";
+    })
     letterBtns.forEach(function(Btn) {
       Btn.style.backgroundColor = "rgb(107, 210, 172)";
+      Btn.style.textDecoration = "none";
       Btn.disabled = false;
     })
   
@@ -111,7 +117,7 @@ function handleGuess(evt) {
   //when a letter button is clicked, the text is pulled from the target
   guessedLetter = evt.target.innerText.toLowerCase();
   //set up guards against clicking something other than a button
-  if(guessedLetter.length > 1) {
+  if(guessedLetter.length > 1 || guessWord === null) {
     return;
   //check to see if guessed letter is in guessed word
   } else {
@@ -130,9 +136,8 @@ function handleGuess(evt) {
       petals = petals-1;
     }
   }
-  render();
   checkGameOutcome();
-
+  render(); 
   console.log(gameStatus);
 }
 
@@ -143,11 +148,13 @@ if (guessString.join("").toLowerCase() === guessWord) {
 } else if (petals === 0) {
  return gameStatus = "lost";
 }
-render();
 }
 
 function handleRestart() {
   gameStatus = "start";
+  petals = 8;
+  guessWord = null;
   render();
 }
-
+//bugs
+//flower does not restart
