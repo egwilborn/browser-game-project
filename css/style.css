@@ -113,11 +113,19 @@ header {
     grid-area: 2/2/3/3;
     
 }
+#letter-buttons > button {
+    background-color: rgb(107, 210, 172);
+    color: rgb(45, 43, 45);
+}
 #guess-word {
     grid-area: 3/1/4/2;
     display:flex;
     justify-content: space-around;
     align-items: center;
+}
+#guess-word > div {
+    border-bottom-width: 5px;
+    border-bottom-color: black;
 }
 #game-buttons {
     grid-area: 3/2/4/3;
