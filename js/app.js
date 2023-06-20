@@ -55,7 +55,9 @@ function renderMessage() {
 } else if (gameStatus === "start") {
   messageEl.innerHTML = "<h4>Guess each letter of the word</h4> <h4>Can you keep the flower from losing its petals?</h4>"
   messageEl.style.backgroundColor = "rgb(182 230 238)"
-  
+  flowerPetalEls.forEach(function(petalEl) {
+    petalEl.style.visibility = "visible";
+  })
 }
 }
 
@@ -98,7 +100,7 @@ if (guessStatus === true) {
   } else if (guessStatus === false) {
 
     //flower div needs to lose a petal in the state variable and in the html
-   flowerPetalEls[petals].remove();
+   flowerPetalEls[petals].style.visibility = "hidden";
    //incorrect guess buttons should be grey and the letter should be struck through
    const guessBtn = letterBtns.find(function(Btn) {
     return Btn.innerText === guessedLetter.toUpperCase();
