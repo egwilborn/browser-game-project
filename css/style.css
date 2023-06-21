@@ -125,9 +125,9 @@ header {
     margin-right: 10%;
     display:flex; 
     flex-wrap: wrap;
-    align-items:center;
+    align-items:flex-start;
     justify-content: space-around;
-    gap: 5%;
+    gap: 0% 5%;
     
 }
 #letter-buttons > button {
@@ -141,10 +141,13 @@ header {
     border-color: rgb(166, 116, 133);
     border-style: solid;
     border-width: 5%;
+    transform: scale(0.9);
 }
 
 #letter-buttons > button:hover {
     background-color: rgb(18, 161, 222);
+    transform: scale(1.0);
+    transition: transform 150ms ease-in;
     
 }
 
@@ -188,15 +191,16 @@ header {
     border-color: rgb(126, 98, 145);
     border-style: solid;
     border-width: 5%;
-
-
+    transform: scale(0.9);
 }
 #start-game:hover {
     background-color:rgb(126, 98, 145);
     color: white;
+    transform: scale(1.0);
+    transition: transform 150ms ease-in;
 }
 #start-over {
-    visibility: visible;
+    visibility: hidden;
     width: 25%;
     height:25%;
     background-color: rgb(228, 155, 180);
@@ -206,9 +210,11 @@ header {
     border-color: rgb(166, 116, 133);
     border-style: solid;
     border-width: 5%;
-
+    transform: scale(0.9);
 }
 #start-over:hover {
     background-color: rgb(159, 110, 127);
     color: white;
+    transform: scale(1.0);
+    transition: transform 150ms ease-in;
 }
