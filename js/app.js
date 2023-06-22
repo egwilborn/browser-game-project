@@ -117,13 +117,11 @@ function handleGuess(evt) {
   //when a letter button is clicked, the text is pulled from the target
   guessedLetter = evt.target.innerText.toLowerCase();
   //set up guards against clicking something other than a button
-  if (guessedLetter.length > 1 || guessWord === null) {
+  if (guessedLetter.length > 1 || guessWord === undefined) {
     return;
     //check to see if guessed letter is in guessed word
   } else {
-    if (guessWord === undefined) {
-      return;
-    } else if (guessWord.includes(guessedLetter)) {
+    if (guessWord.includes(guessedLetter)) {
       isLetterInWord = true;
       const splitWord = guessWord.split("");
       splitWord.forEach(function (letter, idx) {
@@ -152,7 +150,7 @@ function checkGameStatus() {
 function handleRestart() {
   gameStatus = "start";
   petals = 8;
-  guessWord = null;
+  guessWord = undefined;
   isLetterInWord = null;
   render();
 }
