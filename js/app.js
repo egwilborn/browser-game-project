@@ -50,9 +50,9 @@ function renderMessage() {
   } else if (gameStatus === "start") {
     messageEl.innerHTML =
       "<h4>Guess each letter of the word.</h4> <h4>Can you keep the flower from losing its petals?</h4>";
-    flowerPetalEls.forEach(function (petalEl) {
-      // petalEl.transition = "opacity 1500ms";
-      // petalEl.classList.toggle("opacity-transition");
+    flowerPetalEls.forEach(function (petalEl, idx) {
+      petalEl.classList.remove("animate-forward"); //removes animation
+      petalEl.classList.remove("opacity-transition"); //removes smooth opacity change
       petalEl.style.opacity = "1";
     });
   }
@@ -97,8 +97,8 @@ function renderGuessOutcome() {
     guessBtn.style.backgroundColor = "rgb(255 188 193)";
   } else if (guessStatus === false) {
     //flower div needs to lose a petal in the state variable and in the html
-    // flowerPetalEls[petals].style.animation = "petal-fall 1500ms";
-    flowerPetalEls[petals].classList.add("opacity-transition");
+    flowerPetalEls[petals].classList.add("opacity-transition"); //added class makes petal disappear smoothly
+    flowerPetalEls[petals].classList.add("animate-forward"); //added class makes petal fall in time with disappearing
     flowerPetalEls[petals].style.opacity = "0";
     //incorrect guess buttons should be grey and the letter should be struck through.
     const guessBtn = letterBtns.find(function (Btn) {
@@ -153,5 +153,3 @@ function handleRestart() {
   guessStatus = null;
   render();
 }
-
-//transitions: I was able to smooth out the petal loss and return transitions - still need to figure out best way to animate them falling off

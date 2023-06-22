@@ -7,7 +7,7 @@ body {
   font-family: "Josefin Sans", sans-serif;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr 5fr 2fr;
+  grid-template-rows: 1fr 5fr 3fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   background-color: rgb(182 230 238);
@@ -111,7 +111,7 @@ header {
   border-radius: 50%;
 }
 .opacity-transition {
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 #letter-buttons {
   grid-area: 2/2/3/3;
@@ -130,7 +130,7 @@ header {
   border-radius: 15%;
   font-size: 20px;
   font-family: "Rubik", sans-serif;
-  border-color: rgb(166, 116, 133);
+  border-color: rgb(116, 166, 150);
   border-style: solid;
   border-width: 5%;
   transform: scale(0.9);
@@ -207,15 +207,16 @@ header {
   transition: transform 150ms ease-in;
 }
 /*
-trying to decide whether to use this
+trying to decide whether to use this*/
 @keyframes petal-fall {
   from {
     transform: translateY(0px);
-    opacity: 1;
   }
   to {
     transform: translateY(100px);
-    opacity: 0;
   }
 }
-*/
+.animate-forward {
+  animation: petal-fall 0.5s;
+  animation-fill-mode: forwards;
+}
