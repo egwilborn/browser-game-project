@@ -44,9 +44,9 @@ function renderMessage() {
   if (gameStatus === "playing") {
     messageEl.innerText = "";
   } else if (gameStatus === "won") {
-    messageEl.innerText = "Congrats! You guessed the word!";
+    messageEl.innerHTML = "<h4>Congrats!</h4><h4>You guessed the word!</h4>";
   } else if (gameStatus === "lost") {
-    messageEl.innerText = `Oh no! The word was ${guessWord}.`;
+    messageEl.innerHTML = `<h4>Oh no! The word was ${guessWord}.</h4>`;
   } else if (gameStatus === "start") {
     messageEl.innerHTML =
       "<h4>Guess each letter of the word.</h4> <h4>Can you keep the flower from losing its petals?</h4>";
