@@ -135,4 +135,5 @@ const wordBank = [
   "window",
   "wisdom",
   "wonder",
+  "wander",
 ];
