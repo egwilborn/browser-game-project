@@ -1,8 +1,8 @@
 /*----- constants -----*/
-//wordBank in word-array.js
+//wordBank is in word-array.js
 
 /*----- state variables -----*/
-let guessWord; //will decide which word will be picked by the computer (Form: string)
+let guessWord; //will decide which word will be picked by the computer (form: string)
 let guessStatus; // will show whether the guessed letter is in the word or not
 //   True or false (true - the letter is in the word; false - the letter is not in the word; null when there is no guess yet)
 let petals; //shows how many petals are on the flower and how many incorrect guesses the player has left
