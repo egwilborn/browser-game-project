@@ -114,9 +114,6 @@ header {
   background-color: rgb(255 254 214);
   border-radius: 50%;
 }
-.opacity-transition {
-  transition: opacity 1s ease-in-out;
-}
 #letter-buttons {
   grid-area: 2/2/3/3;
   margin-right: 10%;
@@ -222,8 +219,11 @@ header {
     transform: translateY(100px);
   }
 }
+.opacity-transition {
+  transition: opacity 1s ease-in-out;
+}
 .animate-forward {
-  animation: petal-fall 0.5s;
+  animation: petal-fall 1s;
   animation-fill-mode: forwards;
 }
 @media only screen and (max-height: 770px) {

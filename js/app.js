@@ -3,12 +3,12 @@
 
 /*----- state variables -----*/
 let guessWord; //will decide which word will be picked by the computer (form: string)
-let guessStatus; // will show whether the guessed letter is in the word or not
-//   True or false (true - the letter is in the word; false - the letter is not in the word; null when there is no guess yet)
+let isLetterInWord; // will show whether the guessed letter is in the word or not
+//Can be True or false (true - the letter is in the word; false - the letter is not in the word; null when there is no guess yet)
 let petals; //shows how many petals are on the flower and how many incorrect guesses the player has left
 let guessedLetter; // pulls the letter from the button that was clicked to compare to the guess word
-let playerString; //this is an array containing all the letters that have been guessed in the correct order
-let gameStatus = "start"; //shows where in the game you are values are "start" "playing" "won" or "lost"
+let guessArray; //this is an array containing all the letters that have been guessed in the correct order
+let gameStatus; //shows where in the game you are values are "start" "playing" "won" or "lost"
 
 /*----- cached elements  -----*/
 const gameStartBtn = document.getElementById("start-game");
@@ -27,19 +27,18 @@ startOverBtn.addEventListener("click", handleRestart);
 //when the play game button is clicked, the game will be initialized
 function init() {
   guessWord = wordBank[Math.floor(Math.random() * wordBank.length)];
-  guessStatus = null;
+  isLetterInWord = null;
   gameStatus = "playing";
   petals = 8;
-  guessString = new Array(guessWord.length);
+  guessArray = new Array(guessWord.length);
   render();
 }
-
 function render() {
   renderGuessOutcome();
   renderMessage();
   renderButtons();
 }
-//changes message based on game status
+//changes message based on game status and updates flower on restart
 function renderMessage() {
   if (gameStatus === "playing") {
     messageEl.innerText = "";
@@ -63,9 +62,12 @@ function renderButtons() {
   if (gameStatus === "playing") {
     startOverBtn.style.visibility = "visible";
     gameStartBtn.style.visibility = "hidden";
-    //changes start over to play again? when the game is finished
+    //changes start over to play again? and disables letter buttons when the game is finished
   } else if (gameStatus === "won" || gameStatus === "lost") {
     startOverBtn.innerText = "Play Again?";
+    letterBtns.forEach(function (Btn) {
+      Btn.disabled = true;
+    });
     //changes buttons back to "start screen" along with guess boxes
   } else if (gameStatus === "start") {
     startOverBtn.innerText = "Start Over";
@@ -73,7 +75,8 @@ function renderButtons() {
     gameStartBtn.style.visibility = "visible";
     guessWordEls.forEach(function (el) {
       el.innerText = "  ";
-    }); //letter buttons are rendered to original styling and functionality
+    });
+    //letter buttons are rendered to original styling and functionality
     letterBtns.forEach(function (Btn) {
       Btn.style.backgroundColor = "rgb(52, 200, 173)";
       Btn.style.textDecoration = "none";
@@ -83,9 +86,9 @@ function renderButtons() {
 }
 
 function renderGuessOutcome() {
-  if (guessStatus === true) {
-    //need to render the guessString visually
-    guessString.forEach(function (letter, idx) {
+  if (isLetterInWord === true) {
+    //need to render the guessArray visually
+    guessArray.forEach(function (letter, idx) {
       if (letter === guessedLetter.toUpperCase()) {
         guessWordEls[idx].innerText = guessedLetter.toUpperCase();
       }
@@ -95,7 +98,7 @@ function renderGuessOutcome() {
       return Btn.innerText === guessedLetter.toUpperCase();
     });
     guessBtn.style.backgroundColor = "rgb(255 188 193)";
-  } else if (guessStatus === false) {
+  } else if (isLetterInWord === false) {
     //flower div needs to lose a petal in the state variable and in the html
     flowerPetalEls[petals].classList.add("opacity-transition"); //added class makes petal disappear smoothly
     flowerPetalEls[petals].classList.add("animate-forward"); //added class makes petal fall in time with disappearing
@@ -121,15 +124,15 @@ function handleGuess(evt) {
     if (guessWord === undefined) {
       return;
     } else if (guessWord.includes(guessedLetter)) {
-      guessStatus = true;
+      isLetterInWord = true;
       const splitWord = guessWord.split("");
       splitWord.forEach(function (letter, idx) {
         if (letter === guessedLetter) {
-          guessString[idx] = `${letter.toUpperCase()}`;
+          guessArray[idx] = `${letter.toUpperCase()}`;
         }
       });
     } else {
-      guessStatus = false;
+      isLetterInWord = false;
       petals = petals - 1;
     }
   }
@@ -139,7 +142,7 @@ function handleGuess(evt) {
 
 function checkGameStatus() {
   //checks if the game is over
-  if (guessString.join("").toLowerCase() === guessWord) {
+  if (guessArray.join("").toLowerCase() === guessWord) {
     return (gameStatus = "won");
   } else if (petals === 0) {
     return (gameStatus = "lost");
@@ -150,6 +153,6 @@ function handleRestart() {
   gameStatus = "start";
   petals = 8;
   guessWord = null;
-  guessStatus = null;
+  isLetterInWord = null;
   render();
 }
